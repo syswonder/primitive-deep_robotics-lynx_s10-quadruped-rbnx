@@ -1,0 +1,4 @@
+string posture_name
+---
+bool success
+string message

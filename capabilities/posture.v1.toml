@@ -1,0 +1,11 @@
+# Quadruped posture control — attached to the lynx_quadruped primitive. The
+# LLM calls this to switch the S10 between motion states (stand, sit, RL nav,
+# damping, zero) by publishing a drdds/msg/MotionState on /MOTION_STATE.
+[contract]
+id      = "robonix/primitive/chassis/posture"
+version = "1"
+kind    = "primitive"
+idl     = "quadruped/srv/SetPosture.srv"
+
+[mode]
+type = "rpc"

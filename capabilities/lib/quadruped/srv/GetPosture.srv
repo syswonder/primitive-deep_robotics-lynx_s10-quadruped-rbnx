@@ -1,0 +1,4 @@
+---
+string posture
+int32 basic_state
+bool available

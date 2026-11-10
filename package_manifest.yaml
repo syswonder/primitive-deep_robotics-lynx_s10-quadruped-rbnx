@@ -1,0 +1,27 @@
+manifestVersion: 1
+
+package:
+  name: robonix.primitive.deep_robotics.lynx_s10.quadruped
+  version: 0.1.0
+  vendor: robonix
+  description: Lynx S10 wheeled-quadruped ROS2 (drdds) chassis primitive
+  license: Apache-2.0
+  tags: [primitive, chassis, deep_robotics, lynx_s10, quadruped, ros2, drdds]
+  maintainers:
+    - ZLC(mujue) <mujue155@gmail.com>
+
+# cap_id is what shows up in `rbnx caps`. Matches the Primitive id in main.py.
+capability_id: lynx_quadruped
+
+build: bash scripts/build.sh
+start: bash scripts/start.sh
+
+# Built-in chassis contracts (live under <robonix>/capabilities/primitive/chassis/),
+# plus two package-local posture contracts under capabilities/.
+capabilities:
+  - name: robonix/primitive/chassis/driver
+  - name: robonix/primitive/chassis/move
+  - name: robonix/primitive/chassis/twist_in
+  - name: robonix/primitive/chassis/odom
+  - name: robonix/primitive/chassis/posture
+  - name: robonix/primitive/chassis/get_posture

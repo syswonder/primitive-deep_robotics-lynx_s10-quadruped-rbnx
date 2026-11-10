@@ -1,0 +1,11 @@
+# Quadruped posture query — read-only contract attached to the lynx_quadruped
+# primitive. Reads the S10's real motion state from the /MOTION_INFO stream
+# instead of re-sending set_posture to "confirm" a transition.
+[contract]
+id      = "robonix/primitive/chassis/get_posture"
+version = "1"
+kind    = "primitive"
+idl     = "quadruped/srv/GetPosture.srv"
+
+[mode]
+type = "rpc"
