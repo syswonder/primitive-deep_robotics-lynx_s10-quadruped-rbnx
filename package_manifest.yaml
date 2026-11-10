@@ -18,10 +18,20 @@ start: bash scripts/start.sh
 
 # Built-in chassis contracts (live under <robonix>/capabilities/primitive/chassis/),
 # plus two package-local posture contracts under capabilities/.
+# transport = how this package actually serves each contract:
+#   driver                 gRPC (framework lifecycle, called by `rbnx boot`)
+#   move / posture / get_posture   MCP tools (see @lynx_quadruped.mcp in main.py)
+#   twist_in / odom        ROS 2 topics (declare_ros2_topic in main.py)
 capabilities:
   - name: robonix/primitive/chassis/driver
+    transport: grpc
   - name: robonix/primitive/chassis/move
+    transport: mcp
   - name: robonix/primitive/chassis/twist_in
+    transport: ros2
   - name: robonix/primitive/chassis/odom
+    transport: ros2
   - name: robonix/primitive/chassis/posture
+    transport: mcp
   - name: robonix/primitive/chassis/get_posture
+    transport: mcp
